@@ -1,5 +1,3 @@
-# Python Day 3 - ATM Machine
-
 balance = 10000
 pin = 1234
 
