@@ -1,0 +1,34 @@
+name = "Ak"
+
+maths = 85
+science = 78
+english = 92
+history = 81
+geography = 88
+computer = 95
+
+total = maths + science + english + history + geography + computer
+percentage = total / 6
+
+print("\n--- Student Result ---")
+print("Student:", name)
+print("Total Marks:", total)
+print("Percentage:", percentage, "%")
+
+if percentage >= 90:
+    print("Grade: A+")
+elif percentage >= 80:
+    print("Grade: A")
+elif percentage >= 70:
+    print("Grade: B")
+elif percentage >= 60:
+    print("Grade: C")
+elif percentage >= 35:
+    print("Grade: D")
+else:
+    print("Grade: F")
+
+if percentage >= 35:
+    print("Result: PASS")
+else:
+    print("Result: FAIL")
