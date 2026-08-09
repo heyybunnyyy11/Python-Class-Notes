@@ -1,0 +1,28 @@
+name = "Ak"
+
+maths = 85
+science = 78
+english = 92
+history = 81
+geography = 88
+computer = 95
+
+total = maths + science + english + history + geography + computer
+percentage = total / 6
+
+print("\n--- Student Result ---")
+print("Student:", name)
+print("Maths:", maths)
+print("Science:", science)
+print("English:", english)
+print("History:", history)
+print("Geography:", geography)
+print("Computer:", computer)
+
+print("Total Marks:", total)
+print("Percentage:", percentage, "%")
+
+if percentage >= 35:
+    print("Result: PASS")
+else:
+    print("Result: FAIL")
