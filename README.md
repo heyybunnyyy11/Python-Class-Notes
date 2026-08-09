@@ -44,16 +44,3 @@ if entered_pin == pin:
 else:
     print("Wrong PIN")
 
-Output:
-
-===== WELCOME TO ATM =====
-PIN Correct!
-
-1. Check Balance
-2. Deposit Money
-3. Withdraw Money
-
-Selected Option: 3
-Withdrawal Amount: 2500
-Please Collect Your Cash
-Remaining Balance: 7500
