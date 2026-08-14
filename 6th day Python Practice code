@@ -1,0 +1,273 @@
+# Employee Data
+
+employees = [
+    {
+        "id": 101,
+        "name": "Akash",
+        "department": "HR",
+        "salary": 30000,
+        "experience": 3
+    },
+
+    {
+        "id": 102,
+        "name": "Rahul",
+        "department": "Finance",
+        "salary": 35000,
+        "experience": 4
+    },
+
+    {
+        "id": 103,
+        "name": "Priya",
+        "department": "HR",
+        "salary": 32000,
+        "experience": 2
+    },
+
+    {
+        "id": 104,
+        "name": "Sneha",
+        "department": "IT",
+        "salary": 45000,
+        "experience": 5
+    },
+
+    {
+        "id": 105,
+        "name": "Amit",
+        "department": "Operations",
+        "salary": 28000,
+        "experience": 1
+    }
+]
+
+
+# ==========================================
+# 1. Display All Employees
+# ==========================================
+
+def display_employees():
+
+    print("\nEMPLOYEE DETAILS")
+    print("=" * 60)
+
+    for emp in employees:
+
+        print(
+            "ID:", emp["id"],
+            "| Name:", emp["name"],
+            "| Department:", emp["department"],
+            "| Salary:", emp["salary"],
+            "| Experience:", emp["experience"], "Years"
+        )
+
+
+display_employees()
+
+
+# ==========================================
+# 2. Find Employee by ID
+# ==========================================
+
+def find_employee(employee_id):
+
+    for emp in employees:
+
+        if emp["id"] == employee_id:
+
+            print("\nEmployee Found")
+            print("----------------------")
+            print("ID:", emp["id"])
+            print("Name:", emp["name"])
+            print("Department:", emp["department"])
+            print("Salary:", emp["salary"])
+            print("Experience:", emp["experience"], "Years")
+
+            return
+
+    print("\nEmployee not found.")
+
+
+find_employee(103)
+
+
+# ==========================================
+# 3. Find Employees by Department
+# ==========================================
+
+def department_employees(department):
+
+    print("\nEmployees in", department)
+    print("----------------------")
+
+    found = False
+
+    for emp in employees:
+
+        if emp["department"].lower() == department.lower():
+
+            print(
+                emp["name"],
+                "-",
+                emp["salary"]
+            )
+
+            found = True
+
+    if not found:
+
+        print("No employee found.")
+
+
+department_employees("HR")
+
+
+# ==========================================
+# 4. Calculate Average Salary
+# ==========================================
+
+def average_salary():
+
+    total_salary = 0
+
+    for emp in employees:
+
+        total_salary += emp["salary"]
+
+    average = total_salary / len(employees)
+
+    return average
+
+
+avg = average_salary()
+
+print("\nAverage Salary:", avg)
+
+
+# ==========================================
+# 5. Find Highest Paid Employee
+# ==========================================
+
+highest_employee = max(
+    employees,
+    key=lambda x: x["salary"]
+)
+
+print("\nHighest Paid Employee")
+print("----------------------")
+print("Name:", highest_employee["name"])
+print("Salary:", highest_employee["salary"])
+
+
+# ==========================================
+# 6. Find Lowest Paid Employee
+# ==========================================
+
+lowest_employee = min(
+    employees,
+    key=lambda x: x["salary"]
+)
+
+print("\nLowest Paid Employee")
+print("----------------------")
+print("Name:", lowest_employee["name"])
+print("Salary:", lowest_employee["salary"])
+
+
+# ==========================================
+# 7. Employees Above Average Salary
+# ==========================================
+
+print("\nEmployees Above Average Salary")
+print("-------------------------------")
+
+for emp in employees:
+
+    if emp["salary"] > avg:
+
+        print(
+            emp["name"],
+            "-",
+            emp["salary"]
+        )
+
+
+# ==========================================
+# 8. Salary Category
+# ==========================================
+
+print("\nSalary Category")
+print("----------------")
+
+for emp in employees:
+
+    salary = emp["salary"]
+
+    if salary >= 40000:
+
+        category = "High Salary"
+
+    elif salary >= 30000:
+
+        category = "Medium Salary"
+
+    else:
+
+        category = "Low Salary"
+
+    print(
+        emp["name"],
+        "-",
+        category
+    )
+
+
+# ==========================================
+# 9. Experience Analysis
+# ==========================================
+
+print("\nExperienced Employees")
+print("----------------------")
+
+for emp in employees:
+
+    if emp["experience"] >= 3:
+
+        print(
+            emp["name"],
+            "-",
+            emp["experience"],
+            "Years"
+        )
+
+
+# ==========================================
+# 10. HR Department Count
+# ==========================================
+
+hr_count = 0
+
+for emp in employees:
+
+    if emp["department"] == "HR":
+
+        hr_count += 1
+
+
+print("\nTotal HR Employees:", hr_count)
+
+
+# ==========================================
+# FINAL SUMMARY
+# ==========================================
+
+print("\n================================")
+print("       HR ANALYTICS SUMMARY")
+print("================================")
+
+print("Total Employees:", len(employees))
+print("Average Salary:", avg)
+print("Highest Salary:", highest_employee["salary"])
+print("Lowest Salary:", lowest_employee["salary"])
+print("HR Employees:", hr_count)
