@@ -1,0 +1,308 @@
+# 1. Employee Data
+# ----------------------------------------------------------
+
+employees = [
+    {
+        "id": 101,
+        "name": "Akash",
+        "department": "HR",
+        "salary": 30000,
+        "days_present": 26,
+        "total_days": 30
+    },
+
+    {
+        "id": 102,
+        "name": "Rahul",
+        "department": "Finance",
+        "salary": 35000,
+        "days_present": 28,
+        "total_days": 30
+    },
+
+    {
+        "id": 103,
+        "name": "Priya",
+        "department": "HR",
+        "salary": 32000,
+        "days_present": 24,
+        "total_days": 30
+    },
+
+    {
+        "id": 104,
+        "name": "Sneha",
+        "department": "IT",
+        "salary": 45000,
+        "days_present": 29,
+        "total_days": 30
+    },
+
+    {
+        "id": 105,
+        "name": "Amit",
+        "department": "Operations",
+        "salary": 28000,
+        "days_present": 22,
+        "total_days": 30
+    }
+]
+
+
+# ----------------------------------------------------------
+# 2. Calculate Attendance Percentage
+# ----------------------------------------------------------
+
+def attendance_percentage(present, total):
+
+    percentage = (present / total) * 100
+
+    return percentage
+
+
+# ----------------------------------------------------------
+# 3. Display Employee Report
+# ----------------------------------------------------------
+
+print("\n")
+print("=" * 80)
+print("              EMPLOYEE ATTENDANCE REPORT")
+print("=" * 80)
+
+for emp in employees:
+
+    attendance = attendance_percentage(
+        emp["days_present"],
+        emp["total_days"]
+    )
+
+    print(
+        "ID:", emp["id"],
+        "| Name:", emp["name"],
+        "| Department:", emp["department"],
+        "| Attendance:", round(attendance, 2), "%"
+    )
+
+
+# ----------------------------------------------------------
+# 4. Attendance Status
+# ----------------------------------------------------------
+
+print("\n")
+print("=" * 50)
+print("              ATTENDANCE STATUS")
+print("=" * 50)
+
+for emp in employees:
+
+    attendance = attendance_percentage(
+        emp["days_present"],
+        emp["total_days"]
+    )
+
+    if attendance >= 90:
+
+        status = "Excellent"
+
+    elif attendance >= 80:
+
+        status = "Good"
+
+    elif attendance >= 70:
+
+        status = "Average"
+
+    else:
+
+        status = "Poor"
+
+    print(
+        emp["name"],
+        "->",
+        round(attendance, 2),
+        "%",
+        "->",
+        status
+    )
+
+
+# ----------------------------------------------------------
+# 5. Find Highest Salary
+# ----------------------------------------------------------
+
+highest_salary_employee = max(
+    employees,
+    key=lambda x: x["salary"]
+)
+
+print("\n")
+print("Highest Salary Employee")
+print("-----------------------")
+
+print(
+    highest_salary_employee["name"],
+    "- ₹",
+    highest_salary_employee["salary"]
+)
+
+
+# ----------------------------------------------------------
+# 6. Find Lowest Salary
+# ----------------------------------------------------------
+
+lowest_salary_employee = min(
+    employees,
+    key=lambda x: x["salary"]
+)
+
+print("\n")
+print("Lowest Salary Employee")
+print("----------------------")
+
+print(
+    lowest_salary_employee["name"],
+    "- ₹",
+    lowest_salary_employee["salary"]
+)
+
+
+# ----------------------------------------------------------
+# 7. Calculate Total Salary
+# ----------------------------------------------------------
+
+total_salary = 0
+
+for emp in employees:
+
+    total_salary += emp["salary"]
+
+
+print("\n")
+print("Total Salary Expense: ₹", total_salary)
+
+
+# ----------------------------------------------------------
+# 8. Calculate Average Salary
+# ----------------------------------------------------------
+
+average_salary = total_salary / len(employees)
+
+print("Average Salary: ₹", round(average_salary, 2))
+
+
+# ----------------------------------------------------------
+# 9. Employees With Low Attendance
+# ----------------------------------------------------------
+
+print("\n")
+print("=" * 50)
+print("        EMPLOYEES WITH LOW ATTENDANCE")
+print("=" * 50)
+
+for emp in employees:
+
+    attendance = attendance_percentage(
+        emp["days_present"],
+        emp["total_days"]
+    )
+
+    if attendance < 80:
+
+        print(
+            emp["name"],
+            "-",
+            round(attendance, 2),
+            "%"
+        )
+
+
+# ----------------------------------------------------------
+# 10. HR Department Employees
+# ----------------------------------------------------------
+
+print("\n")
+print("=" * 50)
+print("              HR DEPARTMENT")
+print("=" * 50)
+
+for emp in employees:
+
+    if emp["department"] == "HR":
+
+        print(
+            emp["name"],
+            "- ₹",
+            emp["salary"]
+        )
+
+
+# ----------------------------------------------------------
+# 11. Department Employee Count
+# ----------------------------------------------------------
+
+department_count = {}
+
+for emp in employees:
+
+    department = emp["department"]
+
+    if department in department_count:
+
+        department_count[department] += 1
+
+    else:
+
+        department_count[department] = 1
+
+
+print("\n")
+print("=" * 50)
+print("          DEPARTMENT EMPLOYEE COUNT")
+print("=" * 50)
+
+for department, count in department_count.items():
+
+    print(
+        department,
+        ":",
+        count
+    )
+
+
+# ----------------------------------------------------------
+# 12. Final HR Analytics Summary
+# ----------------------------------------------------------
+
+print("\n")
+print("=" * 60)
+print("              HR ANALYTICS SUMMARY")
+print("=" * 60)
+
+print("Total Employees:", len(employees))
+
+print(
+    "Total Salary Expense: ₹",
+    total_salary
+)
+
+print(
+    "Average Salary: ₹",
+    round(average_salary, 2)
+)
+
+print(
+    "Highest Salary: ₹",
+    highest_salary_employee["salary"]
+)
+
+print(
+    "Lowest Salary: ₹",
+    lowest_salary_employee["salary"]
+)
+
+print(
+    "Total Departments:",
+    len(department_count)
+)
+
+print("=" * 60)
