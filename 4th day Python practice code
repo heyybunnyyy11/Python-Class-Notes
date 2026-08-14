@@ -1,0 +1,67 @@
+# Employee salary data
+employees = {
+    "Akash": 30000,
+    "Rahul": 28000,
+    "Priya": 35000,
+    "Sneha": 32000,
+    "Amit": 40000
+}
+
+# 1. Total number of employees
+total_employees = len(employees)
+print("Total Employees:", total_employees)
+
+
+# 2. Total salary
+total_salary = sum(employees.values())
+print("Total Salary:", total_salary)
+
+
+# 3. Average salary
+average_salary = total_salary / total_employees
+print("Average Salary:", average_salary)
+
+
+# 4. Highest salary
+highest_salary = max(employees.values())
+print("Highest Salary:", highest_salary)
+
+
+# 5. Lowest salary
+lowest_salary = min(employees.values())
+print("Lowest Salary:", lowest_salary)
+
+
+# 6. Employee with highest salary
+highest_employee = max(employees, key=employees.get)
+print("Highest Paid Employee:", highest_employee)
+print("Highest Salary:", employees[highest_employee])
+
+
+# 7. Employee with lowest salary
+lowest_employee = min(employees, key=employees.get)
+print("Lowest Paid Employee:", lowest_employee)
+print("Lowest Salary:", employees[lowest_employee])
+
+
+# 8. Display all employees
+print("\nEmployee Salary Details:")
+
+for name, salary in employees.items():
+    print(name, ":", salary)
+
+
+# 9. Employees earning above 30,000
+print("\nEmployees earning above 30,000:")
+
+for name, salary in employees.items():
+    if salary > 30000:
+        print(name, ":", salary)
+
+
+# 10. Employees earning 30,000 or below
+print("\nEmployees earning 30,000 or below:")
+
+for name, salary in employees.items():
+    if salary <= 30000:
+        print(name, ":", salary)
