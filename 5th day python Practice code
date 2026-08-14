@@ -1,0 +1,134 @@
+# 1. Simple Function
+
+def welcome():
+    print("Welcome to Python Training")
+
+
+welcome()
+
+
+# 2. Function with Parameter
+
+def employee_name(name):
+    print("Employee Name:", name)
+
+
+employee_name("Akash")
+employee_name("Rahul")
+employee_name("Priya")
+
+
+# 3. Function for Salary
+
+def calculate_salary(basic_salary, allowance):
+    total_salary = basic_salary + allowance
+    return total_salary
+
+
+salary = calculate_salary(25000, 5000)
+
+print("Total Salary:", salary)
+
+
+# 4. Function to Calculate Bonus
+
+def calculate_bonus(salary):
+    
+    if salary >= 40000:
+        bonus = salary * 0.10
+        
+    elif salary >= 30000:
+        bonus = salary * 0.07
+        
+    else:
+        bonus = salary * 0.05
+    
+    return bonus
+
+
+employees = {
+    "Akash": 30000,
+    "Rahul": 28000,
+    "Priya": 35000,
+    "Sneha": 32000,
+    "Amit": 40000
+}
+
+
+# 5. Display Employee Salary & Bonus
+
+print("\nEmployee Salary & Bonus")
+print("------------------------")
+
+for name, salary in employees.items():
+
+    bonus = calculate_bonus(salary)
+
+    print("Employee:", name)
+    print("Salary:", salary)
+    print("Bonus:", bonus)
+    print("Total Pay:", salary + bonus)
+    print("------------------------")
+
+
+# 6. Function for Salary Category
+
+def salary_category(salary):
+
+    if salary >= 40000:
+        return "High Salary"
+
+    elif salary >= 30000:
+        return "Medium Salary"
+
+    else:
+        return "Low Salary"
+
+
+print("\nSalary Category")
+print("----------------")
+
+for name, salary in employees.items():
+
+    category = salary_category(salary)
+
+    print(name, ":", category)
+
+
+# 7. Find Highest Paid Employee
+
+highest_employee = max(
+    employees,
+    key=employees.get
+)
+
+print("\nHighest Paid Employee:")
+print(highest_employee)
+
+print("Salary:", employees[highest_employee])
+
+
+# 8. Find Average Salary
+
+def average_salary(data):
+
+    total = sum(data.values())
+    employees_count = len(data)
+
+    return total / employees_count
+
+
+average = average_salary(employees)
+
+print("\nAverage Salary:", average)
+
+
+# 9. Employees Above Average Salary
+
+print("\nEmployees Above Average Salary")
+print("-------------------------------")
+
+for name, salary in employees.items():
+
+    if salary > average:
+        print(name, ":", salary)
