@@ -1,0 +1,49 @@
+import pandas as pd
+
+data = {
+    "Name": ["Akash", "Rahul", "Priya", "Sneha", "Amit"],
+    "Department": ["HR", "Finance", "HR", "IT", "Admin"],
+    "Salary": [30000, 35000, 32000, 45000, 28000],
+    "Attendance": [26, 28, 24, 29, 22]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+
+print("\nTotal Employees:")
+print(len(df))
+
+print("\nTotal Salary:")
+print(df["Salary"].sum())
+
+print("\nAverage Salary:")
+print(df["Salary"].mean())
+
+print("\nHighest Salary:")
+print(df["Salary"].max())
+
+print("\nLowest Salary:")
+print(df["Salary"].min())
+
+print("\nHR Employees:")
+print(df[df["Department"] == "HR"])
+
+print("\nEmployees with Salary above 30000:")
+print(df[df["Salary"] > 30000])
+
+print("\nEmployees with Attendance below 25:")
+print(df[df["Attendance"] < 25])
+
+print("\nDepartment Count:")
+print(df["Department"].value_counts())
+
+print("\nDepartment Wise Salary:")
+print(df.groupby("Department")["Salary"].mean())
+
+print("\nSalary High to Low:")
+print(df.sort_values("Salary", ascending=False))
+
+df.to_excel("employee_data.xlsx", index=False)
+
+print("\nExcel file created successfully")
