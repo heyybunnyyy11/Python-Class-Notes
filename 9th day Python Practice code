@@ -1,0 +1,113 @@
+import pandas as pd
+
+data = {
+    "Name": ["Akash", "Rahul", "Priya", "Sneha", "Amit", "Neha"],
+    "Department": ["HR", "Finance", "HR", "IT", "Admin", "HR"],
+    "Salary": [30000, 35000, 32000, 45000, 28000, 38000],
+    "Attendance": [26, 28, 24, 29, 22, 27],
+    "Experience": [3, 4, 2, 5, 1, 4]
+}
+
+df = pd.DataFrame(data)
+
+print("Employee Data")
+print(df)
+
+
+print("\nFirst 3 Employees")
+print(df.head(3))
+
+
+print("\nEmployee Names")
+print(df["Name"])
+
+
+print("\nHR Employees")
+hr = df[df["Department"] == "HR"]
+print(hr)
+
+
+print("\nSalary Above 30000")
+high_salary = df[df["Salary"] > 30000]
+print(high_salary)
+
+
+print("\nAttendance Below 25")
+low_attendance = df[df["Attendance"] < 25]
+print(low_attendance)
+
+
+print("\nExperience More Than 3 Years")
+experienced = df[df["Experience"] > 3]
+print(experienced)
+
+
+print("\nHR Employees With Salary Above 30000")
+result = df[
+    (df["Department"] == "HR") &
+    (df["Salary"] > 30000)
+]
+print(result)
+
+
+print("\nTotal Salary")
+print(df["Salary"].sum())
+
+
+print("\nAverage Salary")
+print(df["Salary"].mean())
+
+
+print("\nHighest Salary")
+print(df["Salary"].max())
+
+
+print("\nLowest Salary")
+print(df["Salary"].min())
+
+
+print("\nAverage Attendance")
+print(df["Attendance"].mean())
+
+
+print("\nDepartment Wise Employee Count")
+print(df["Department"].value_counts())
+
+
+print("\nDepartment Wise Average Salary")
+print(df.groupby("Department")["Salary"].mean())
+
+
+print("\nSalary High to Low")
+print(df.sort_values("Salary", ascending=False))
+
+
+print("\nAttendance High to Low")
+print(df.sort_values("Attendance", ascending=False))
+
+
+df["Salary_Category"] = "Low"
+
+df.loc[df["Salary"] >= 30000, "Salary_Category"] = "Medium"
+
+df.loc[df["Salary"] >= 40000, "Salary_Category"] = "High"
+
+
+print("\nSalary Category")
+print(df[["Name", "Salary", "Salary_Category"]])
+
+
+df["Attendance_Status"] = "Poor"
+
+df.loc[df["Attendance"] >= 25, "Attendance_Status"] = "Good"
+
+df.loc[df["Attendance"] >= 28, "Attendance_Status"] = "Excellent"
+
+
+print("\nAttendance Status")
+print(df[["Name", "Attendance", "Attendance_Status"]])
+
+
+df.to_excel("Day9_HR_Data.xlsx", index=False)
+
+print("\nDay 9 Excel file created successfully")
