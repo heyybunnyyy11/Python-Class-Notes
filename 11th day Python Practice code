@@ -1,0 +1,141 @@
+Employee Management System
+
+employees = [
+    {
+        "id": 101,
+        "name": "Rahul Sharma",
+        "department": "HR",
+        "salary": 35000,
+        "experience": 4,
+        "performance": 85
+    },
+    {
+        "id": 102,
+        "name": "Priya Patil",
+        "department": "Finance",
+        "salary": 42000,
+        "experience": 5,
+        "performance": 92
+    },
+    {
+        "id": 103,
+        "name": "Amit Kumar",
+        "department": "IT",
+        "salary": 50000,
+        "experience": 6,
+        "performance": 78
+    },
+    {
+        "id": 104,
+        "name": "Sneha Joshi",
+        "department": "Marketing",
+        "salary": 38000,
+        "experience": 3,
+        "performance": 88
+    },
+    {
+        "id": 105,
+        "name": "Vikas Singh",
+        "department": "Operations",
+        "salary": 32000,
+        "experience": 2,
+        "performance": 70
+    }
+]
+
+print("=" * 55)
+print("          EMPLOYEE MANAGEMENT SYSTEM")
+print("=" * 55)
+
+# Display all employees
+
+for employee in employees:
+
+    salary = employee["salary"]
+    performance = employee["performance"]
+
+    # Bonus calculation
+    if performance >= 90:
+        bonus = salary * 0.20
+        rating = "Excellent"
+
+    elif performance >= 80:
+        bonus = salary * 0.15
+        rating = "Very Good"
+
+    elif performance >= 70:
+        bonus = salary * 0.10
+        rating = "Good"
+
+    elif performance >= 60:
+        bonus = salary * 0.05
+        rating = "Average"
+
+    else:
+        bonus = 0
+        rating = "Needs Improvement"
+
+    # Salary increment
+    if employee["experience"] >= 5:
+        increment = salary * 0.10
+    elif employee["experience"] >= 3:
+        increment = salary * 0.07
+    else:
+        increment = salary * 0.05
+
+    new_salary = salary + increment
+
+    print("\n-----------------------------------------------")
+    print("Employee ID       :", employee["id"])
+    print("Employee Name     :", employee["name"])
+    print("Department        :", employee["department"])
+    print("Experience        :", employee["experience"], "Years")
+    print("Current Salary    : Rs.", salary)
+    print("Performance Score :", performance)
+    print("Rating            :", rating)
+    print("Bonus             : Rs.", bonus)
+    print("Salary Increment  : Rs.", increment)
+    print("New Salary        : Rs.", new_salary)
+
+# Find highest salary employee
+
+highest_salary_employee = employees[0]
+
+for employee in employees:
+    if employee["salary"] > highest_salary_employee["salary"]:
+        highest_salary_employee = employee
+
+print("\n===============================================")
+print("          HIGHEST SALARY EMPLOYEE")
+print("===============================================")
+
+print("Employee Name :", highest_salary_employee["name"])
+print("Department    :", highest_salary_employee["department"])
+print("Salary        : Rs.", highest_salary_employee["salary"])
+
+# Search Employee
+
+search_id = 103
+
+print("\n===============================================")
+print("             EMPLOYEE SEARCH")
+print("===============================================")
+
+found = False
+
+for employee in employees:
+
+    if employee["id"] == search_id:
+        print("Employee Found!")
+        print("ID         :", employee["id"])
+        print("Name       :", employee["name"])
+        print("Department :", employee["department"])
+        print("Salary     : Rs.", employee["salary"])
+        found = True
+
+if found == False:
+    print("Employee not found.")
+
+print("\n===============================================")
+print("          PROGRAM COMPLETED")
+print("===============================================")
