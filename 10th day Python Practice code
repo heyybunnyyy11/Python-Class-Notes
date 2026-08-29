@@ -1,0 +1,108 @@
+Employee Management System
+
+employees = [
+    {
+        "id": 101,
+        "name": "Rahul Sharma",
+        "department": "HR",
+        "salary": 35000,
+        "experience": 4,
+        "performance": 85
+    },
+    {
+        "id": 102,
+        "name": "Priya Patil",
+        "department": "Finance",
+        "salary": 42000,
+        "experience": 5,
+        "performance": 92
+    },
+    {
+        "id": 103,
+        "name": "Amit Kumar",
+        "department": "IT",
+        "salary": 50000,
+        "experience": 6,
+        "performance": 78
+    },
+    {
+        "id": 104,
+        "name": "Sneha Joshi",
+        "department": "Marketing",
+        "salary": 38000,
+        "experience": 3,
+        "performance": 88
+    },
+    {
+        "id": 105,
+        "name": "Vikas Singh",
+        "department": "Operations",
+        "salary": 32000,
+        "experience": 2,
+        "performance": 70
+    }
+]
+
+print("=" * 50)
+print("        EMPLOYEE MANAGEMENT SYSTEM")
+print("=" * 50)
+
+total_salary = 0
+total_bonus = 0
+
+for employee in employees:
+
+    salary = employee["salary"]
+    performance = employee["performance"]
+
+    annual_salary = salary * 12
+
+    # Calculate Bonus
+    if performance >= 90:
+        bonus = salary * 0.20
+        rating = "Excellent"
+
+    elif performance >= 80:
+        bonus = salary * 0.15
+        rating = "Very Good"
+
+    elif performance >= 70:
+        bonus = salary * 0.10
+        rating = "Good"
+
+    elif performance >= 60:
+        bonus = salary * 0.05
+        rating = "Average"
+
+    else:
+        bonus = 0
+        rating = "Needs Improvement"
+
+    total_salary = total_salary + salary
+    total_bonus = total_bonus + bonus
+
+    print("\n------------------------------------------")
+    print("Employee ID:", employee["id"])
+    print("Name:", employee["name"])
+    print("Department:", employee["department"])
+    print("Monthly Salary: Rs.", salary)
+    print("Annual Salary: Rs.", annual_salary)
+    print("Experience:", employee["experience"], "Years")
+    print("Performance Score:", performance)
+    print("Performance Rating:", rating)
+    print("Bonus: Rs.", bonus)
+
+# Company Summary
+
+average_salary = total_salary / len(employees)
+
+print("\n==========================================")
+print("             COMPANY SUMMARY")
+print("==========================================")
+
+print("Total Employees:", len(employees))
+print("Total Monthly Salary: Rs.", total_salary)
+print("Average Monthly Salary: Rs.", average_salary)
+print("Total Bonus: Rs.", total_bonus)
+
+print("\nEmployee data processed successfully!")
